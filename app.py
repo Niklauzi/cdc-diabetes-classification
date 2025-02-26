@@ -10,7 +10,7 @@ st.set_page_config(page_title="Diabetes Prediction App", layout="wide")
 # Load the saved model and scaler
 def load_model_and_scaler():
     try:
-        model_path = os.path.join("saved_models", "diabetes_prediction.pkl")
+        model_path = os.path.join("saved_models", "diabetes_prediction_xgb_2.pkl")
         scaler_path = os.path.join("saved_models", "scaler.pkl")
         
         with open(model_path, "rb") as file:
@@ -175,7 +175,7 @@ if st.button("Predict Diabetes Risk"):
         st.write(f"Probability of having diabetes: {prediction_proba[1]:.2%}")
         
         # Add disclaimer
-        st.info("Note: This prediction is based on statistical analysis and should not be considered as medical advice. Please consult with a healthcare professional for proper diagnosis.")
+        st.info("Note: This prediction is based on statistical analysis and should not be considered as medical advice. Please consult with a healthcare professional for proper diagnosis (Results are screening tools, not diagnoses!!!).")
     else:
         st.error("Error: Model or scaler not loaded properly")
 
